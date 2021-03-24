@@ -16,26 +16,14 @@
         $conn->Connection();  
         $DataU = $conn->getAllData("personnel");
         $DataAd = $conn->getAllData("admin");
+        // $conn->EndSession();
         // $conn->Execute("DROP TABLE personnel");
-        if(isset($_GET['home'])){
-            $home = $_GET['home'];
-        }else $home = "";
-        
-        switch($home){
-            case "noactive":{
-                require_once("./controller/control.php");
-                break;
-            }
-            case "active": {
-                require_once("./controller/control.php");
-                break;
-            }
-            default: {
-                require_once("./controller/control.php");
-                break;
-            }
+        if(!isset($_GET['home'])){
+            header("location: index.php?home=off");
         }
-
+        else{
+            require_once("./controller/control.php");
+        }
     ?>
 </body>
 <script>

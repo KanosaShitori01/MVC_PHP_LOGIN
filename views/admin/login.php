@@ -10,7 +10,7 @@
     <div class="login">
         <div class="row">
             <div class="col-md-4 offset-md-4 form login-form">
-                <form action="index.php?home=login" method="POST" autocomplete="">
+                <form action="index.php?home=off" method="POST" autocomplete="">
                     <h2 class="text-center">Login Form</h2>
                     <p class='text-center'>
                         Login with your email and password. 
@@ -22,11 +22,11 @@
                     <div class="form-group">
                         <input class="form-control" type="password" name="password" placeholder="Password" required>
                     </div>
-                    <!-- <div class="alert__login">
+                    <div class="alert__login">
                         <?php
-                            // echo $errorText;
+                            echo $alertText;
                         ?>
-                    </div> -->
+                    </div>
                     <div class="form-group">
                         <input class="form-control button" type="submit" name="login_submit" value="Login">
                     </div>

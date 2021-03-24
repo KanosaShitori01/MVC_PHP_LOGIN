@@ -1,5 +1,5 @@
 <?php
-   
+    session_start();
     class Database{
         private string $servername = "localhost";
         private string $username;
@@ -29,10 +29,13 @@
             return $this->result;
         }
         public function StartSession($tablename, $id, $sessiondata){
-            session_start();
             $DataId = $this->getData($tablename, $id);
             $_SESSION['{$sessiondata}'] = $DataId[0]["{$sessiondata}"];
             return $_SESSION['{$sessiondata}'];
+        }
+        public function EndSession(){
+            session_unset();
+            session_destroy();
         }
         public function getData($tablename, $id){
             $sql = "SELECT * FROM $tablename WHERE id=$id";
@@ -73,14 +76,22 @@
             $sql = "DELETE FROM $tablename WHERE id=$id";
             return $this->Execute($sql);
         }
-        public function SearchData($tablename, $keydata, $keymain){
-            $key_open = [];
-            foreach($keymain as $x){
-                $key_open[] = "$x REGEXP \"$keydata\"";
+        public function SearchData($tablename, $keymain, $keydata){
+            $sql = "SELECT * FROM $tablename WHERE $keymain = $keydata";
+            $resultSQL = $this->Execute($sql);
+            if(!$resultSQL)
+                return false;
+            else{
+                if($resultSQL->num_rows > 0){
+                    while($row = $resultSQL->fetch_assoc()){
+                        $data[] = $row;
+                    }
+                }
+                else{
+                    $data = "";
+                }
             }
-            $keystr = implode($key_open);
-            $sql = "INSERT * FROM $tablename WHERE $keystr";
-            return $this->Execute($sql);
+            return $data;
         }
     }
 ?>

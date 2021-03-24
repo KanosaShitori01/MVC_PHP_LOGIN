@@ -14,8 +14,8 @@
             //  echo (!empty($_COOKIE['username']) && !empty($_COOKIE['password'])) ? ": ".$_COOKIE['username'] : "Login";
               ?></h1></div>
             <div class="list">
-                <a id="signup" href="index.php?home=signactive">Sign up</a>
-                <a id="login" href="index.php?home=login">Login</a>
+                <a id="signup" href="index.php">Sign up</a>
+                <a id="login" href="index.php?home=off">Login</a>
                 <?php
                    if(!empty($_COOKIE['username']) && !empty($_COOKIE['password']))
                    echo "<a id='logout' href='index.php?home=logout'>Logout</a>";
