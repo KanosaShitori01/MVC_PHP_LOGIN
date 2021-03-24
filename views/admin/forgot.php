@@ -5,62 +5,67 @@
     <!-- Somehow I got an error, so I comment the title, just uncomment to show -->
     <!-- <title>Forgot Password</title> -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="signup_body">
     <style>
-    .container{
+    .forgot{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-.container .form{
+    width: 100%;
+    }
+    .forgot .form{
     background: #fff;
     padding: 30px 35px;
     border-radius: 5px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-}
-.container .form form .form-control{
+    }
+.forgot .form form .form-control{
     height: 40px;
     font-size: 15px;
 }
-.container .form form .button{
+.forgot .form form .button{
     background: #0984e3;
     color: #fff;
     font-size: 17px;
     font-weight: 500;
     transition: all 0.3s ease;
 }
-.container .form form .button:hover{
+.forgot .form form .button:hover{
     background: #5757d1;
 }
-.container .form form .link{
+.forgot .form form .link{
     padding: 5px 0;
 }
-.container .form form .link a{
+.forgot .form form .link a{
     color: #6665ee;
 }
-.container .login-form form p{
+.forgot .login-form form p{
     font-size: 14px;
 }
-.container .row .alert{
+.forgot .row .alert{
     font-size: 14px;
 }
 
 </style>
     </style>
-    <div class="container">
+    <div class="forgot">
         <div class="row">
             <div class="col-md-4 offset-md-4 form">
-                <form action="forgot.php" method="POST" autocomplete="">
+                <form action="index.php?home=forgot" method="POST" autocomplete="">
                     <h2 class="text-center">Forgot Password</h2>
-                    <p class="text-center">Enter your email address</p>
+                    <p class="text-center">Enter your Membership Code</p>
                     <div class="form-group">
-                        <input class="form-control" type="email" name="email" placeholder="Enter email address" required value="">
+                        <input class="form-control" type="text" name="manv" placeholder="Enter Membership Code" required value="">
+                    </div>
+                    <div class="alert__login">
+                        <?php
+                            echo $errorTextCode;
+                        ?>
                     </div>
                     <div class="form-group">
-                        <input class="form-control button" type="submit" name="check-email" value="Continue">
+                        <input class="form-control button" type="submit" name="check-memcode" value="Continue">
                     </div>
                 </form>
             </div>

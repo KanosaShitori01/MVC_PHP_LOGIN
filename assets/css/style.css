@@ -113,4 +113,14 @@ a {
       -ms-flex-direction: column;
           flex-direction: column;
 }
+
+.alert__login {
+  width: 100%;
+  color: red;
+  margin-bottom: 1em;
+}
+
+.success__login {
+  color: #01f035;
+}
 /*# sourceMappingURL=style.css.map */

@@ -1,3 +1,6 @@
+.signup_body{
+    overflow: hidden;
+}
 .signup{
     position: absolute;
     top: 50%;
