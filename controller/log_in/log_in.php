@@ -61,7 +61,8 @@
         if($checkLG != "")
             $_SESSION['login'] = $checkLG;
     }
-    if(isset($_SESSION['login']))
+    if(isset($_SESSION['login'])){
         require_once("./views/index.php");
+    }
     else require_once("./views/admin/login.php");
 ?>

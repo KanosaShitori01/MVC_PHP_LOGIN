@@ -9,9 +9,6 @@
                 ?></h1>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Iure inventore porro minima doloremque eum magnam repellendus mollitia, dicta laboriosam eaque qui adipisci pariatur ratione magni omnis praesentium nam aliquid voluptatibus?</p>
             </div>
-            <?php
-                // echo $_SESSION['login'];
-            ?>
             <div class="column right">
                 <img src="img/img1.png" alt="" sizes="" srcset="">
             </div>
