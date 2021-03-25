@@ -1,6 +1,6 @@
 <?php
     $alertText = "";
-    $AlertText = function($status){
+    function AlertText($status){
         switch($status){
             case "success-login": {
                 return "Đăng Nhập Thành Công";
@@ -39,19 +39,26 @@
                 break;
             }
         }
-    };
+    }
 
     function Login($username, $password, $conn){
         $CheckName = $conn->SearchData("personnel", "tentaikhoan", "\"$username\"");
         $CheckPass = $conn->SearchData("personnel", "matkhau", "\"$password\"");
-        if($CheckName && $CheckPass){
+        if(!$CheckName && $CheckPass){
+            return AlertText("error-login__username");
+        }
+        else if(!$CheckPass && $CheckName){
+            return AlertText("error-login__password");
+        }
+        else if($CheckName && $CheckPass){
             $id = $CheckName[0]['id'];
             $session = $conn->StartSession("personnel", $id, "tentaikhoan");
+            $_SESSION['login'] = $session;
         }  
         else{
-            return false;
+            return AlertText("error-login");
         }
-        return $session;
+        return AlertText("success-login");
     }
     
     if(isset($_POST['login_submit'])){
@@ -59,8 +66,7 @@
         $password = $_POST['password'];
        
         $checkLG = Login($username, $password, $conn);
-        if($checkLG != "")
-            $_SESSION['login'] = $checkLG;
+        $alertText = $checkLG;
     }
     if(isset($_SESSION['login'])){
         // $DataUser = $conn->GetData("personnel");
