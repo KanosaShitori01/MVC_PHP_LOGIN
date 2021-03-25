@@ -17,7 +17,7 @@
     <div class="row-container">
         <nav>
             <div class="logo"><h1>Admin <?php
-            //  echo (!empty($_COOKIE['username']) && !empty($_COOKIE['password'])) ? ": ".$_COOKIE['username'] : "Login";
+                    echo ": {$DataUser['tentaikhoan']}";
               ?></h1></div>
             <div class="list">
                 <a id="signup" href="index.php">Sign up</a>

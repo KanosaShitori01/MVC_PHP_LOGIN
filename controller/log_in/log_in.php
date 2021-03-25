@@ -40,6 +40,7 @@
             }
         }
     };
+
     function Login($username, $password, $conn){
         $CheckName = $conn->SearchData("personnel", "tentaikhoan", "\"$username\"");
         $CheckPass = $conn->SearchData("personnel", "matkhau", "\"$password\"");
@@ -62,6 +63,8 @@
             $_SESSION['login'] = $checkLG;
     }
     if(isset($_SESSION['login'])){
+        // $DataUser = $conn->GetData("personnel");
+        $DataUser = $conn->SearchData("personnel", "tentaikhoan", "\"{$_SESSION['login']}\"")[0];
         require_once("./views/index.php");
     }
     else require_once("./views/admin/login.php");

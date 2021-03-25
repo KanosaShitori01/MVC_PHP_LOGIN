@@ -37,6 +37,7 @@
             session_unset();
             session_destroy();
         }
+
         public function getData($tablename, $id){
             $sql = "SELECT * FROM $tablename WHERE id=$id";
             $getDB = $this->Execute($sql);
